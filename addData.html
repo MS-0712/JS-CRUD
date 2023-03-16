@@ -1,0 +1,289 @@
+    <div class="container-sm container-md container-lg mt-4">
+      <div class="row px-5 d-flex justify-content-end row-header">
+        <div class="col-auto align-middle bg-secondary text-center">
+          <h1 class="text-light p-0 m-0">PERSONAL</h1>
+        </div>
+        <div class="col-auto bg-danger">
+        </div>
+        <hr class="mt-4">
+      </div>
+      <div class="" id="img1"></div>
+      <div class="row px-5 row-style">
+        <label class="p-0 m-0" for="name">Name:
+          <input type="text" oninput="validateText(this)" id="name" class="col-11">
+        </label>
+        <div id="nameEmpty" class="m-0 p-0 form-text error">Please enter a name</div>
+        <div id="nameError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+        <hr>
+      </div>
+      <div class="row px-5 row-style">
+        <label class="p-0 m-0" for="office">Office:
+          <textarea oninput="validateAddress(this)" id="office" rows="3" class="col-7"></textarea>
+          <div id="officeEmpty" class="m-0 p-0 form-text error">Please enter an address</div>
+          <div id="officeError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+        </label>
+        <hr>
+      </div>
+      <div class="row px-5 row-style">
+        <hr class="mt-4">
+      </div>
+      <div class="row px-5 row-style">
+        <label class="p-0 m-0" for="res">Residence:
+          <textarea oninput="validateAddress(this)" id="res" rows="3" class="col-7"></textarea>
+          <div id="resEmpty" class="m-0 p-0 form-text error">Please enter an address</div>
+          <div id="resError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+        </label>
+        <hr>
+      </div>
+      <div class="row px-5 row-style">
+        <hr class="mt-4">
+      </div>
+      <div class="row px-5 row-style">
+        <label class="p-0 m-0" for="mobile">Mobile:
+          <input type="number" oninput="validateNumber(this)" min="1000000000" max="9999999999" id="mob1"
+            oninvalid="setCustomValidity('Please enter valid number.')" onchange="try{setCustomValidity('')}catch(e){}"
+            class="col-11">
+          <div id="mob1Empty" class="m-0 p-0 form-text error">Please enter mobile number</div>
+        </label>
+        <hr>
+      </div>
+      <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="telephone">Telephone:
+            <input type="number" oninput="validateNumber(this)" min="1000000000" max="9999999999" id="tel1"
+              oninvalid="setCustomValidity('Please enter valid telephone.')"
+              onchange="try{setCustomValidity('')}catch(e){}">
+            <div id="tel1Empty" class="m-0 p-0 form-text error">Please enter telephone number</div>
+          </label>
+          <hr class="m">
+        </div>
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="telephone">File:
+            <input type="file" id="file" accept="image/png">
+            <div id="fileEmpty" class="m-0 p-0 form-text error">Please select a file</div>
+          </label>
+          <hr>
+        </div>
+      </div>
+      <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="email">Email ID:
+          </label>
+            <input type="email" id="email" oninput="validateEmail(this)">
+          <div id="emailEmpty" class="m-0 p-0 form-text error">Please enter an email address</div>
+          <div id="emailError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+          <hr class="m">
+        </div>
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0 mb-1">Birthdate:
+            <input type="date" id="dob" max="2015-01-01">
+            <div id="dobEmpty" class="m-0 p-0 form-text error">Please select DOB</div>
+          </label>
+          <hr>
+        </div>
+      </div>
+      <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">Aadhar No:
+            <input type="number" oninput="validateNumber(this)" min="100000000000" max="999999999999" id="aadhar"
+              oninvalid="setCustomValidity('Please enter valid aadhar.')"
+              onchange="try{setCustomValidity('')}catch(e){}">
+            <div id="aadharEmpty" class="m-0 p-0 form-text error">Please enter aadhar number</div>
+          </label>
+          <hr class="m">
+        </div>
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">GSTIN:
+            <input type="text" oninput="validateText(this)" id="gstin">
+            <div id="gstinEmpty" class="m-0 p-0 form-text error">Please enter GSTIN</div>
+            <div id="gstinError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+          </label>
+          <hr>
+        </div>
+      </div>
+      <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">Vehicle No:
+            <input type="text" oninput="validateText(this)" id="veh">
+            <div id="vehEmpty" class="m-0 p-0 form-text error">Please enter vehicle number</div>
+            <div id="vehError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+          </label>
+          <hr class="m">
+        </div>
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">DL No:
+            <input type="text" oninput="validateText(this)" id="dl">
+            <div id="dlEmpty" class="m-0 p-0 form-text error">Please enter DL number</div>
+            <div id="dlError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+          </label>
+          <hr>
+        </div>
+      </div>
+      <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">Bank A/c With:
+            <input type="text" oninput="validateText(this)" id="bank">
+            <div id="bankEmpty" class="m-0 p-0 form-text error">Please enter bank name</div>
+            <div id="bankError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+          </label>
+          <hr class="m">
+        </div>
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">Account No:
+            <input type="number" oninput="validateNumber(this)" min="1000000000" max="99999999999999" id="acno"
+              oninvalid="setCustomValidity('Please enter valid account number.')"
+              onchange="try{setCustomValidity('')}catch(e){}">
+            <div id="acnoEmpty" class="m-0 p-0 form-text error">Please enter account number</div>
+          </label>
+          <hr>
+        </div>
+      </div>
+      <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">Debit Card No:
+            <input type="number" oninput="validateNumber(this)" min="1000000000000000" max="9999999999999999" id="dcno"
+              oninvalid="setCustomValidity('Please enter valid debit card number.')"
+              onchange="try{setCustomValidity('')}catch(e){}">
+            <div id="dcnoEmpty" class="m-0 p-0 form-text error">Please enter debit card number</div>
+          </label>
+          <hr class="m">
+        </div>
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">Credit Card No:
+            <input type="number" oninput="validateNumber(this)" min="1000000000000000" max="9999999999999999" id="ccno"
+              oninvalid="setCustomValidity('Please enter valid credit card number.')"
+              onchange="try{setCustomValidity('')}catch(e){}">
+            <div id="ccnoEmpty" class="m-0 p-0 form-text error">Please enter credit card number</div>
+          </label>
+          <hr>
+        </div>
+      </div>
+      <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">Passport No:
+            <input type="number" oninput="validateNumber(this)" min="1000000000" max="9999999999" id="passno"
+              oninvalid="setCustomValidity('Please enter valid passport number.')"
+              onchange="try{setCustomValidity('')}catch(e){}">
+            <div id="passnoEmpty" class="m-0 p-0 form-text error">Please enter passport number</div>
+          </label>
+          <hr class="m">
+        </div>
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">PAN No:
+            <input type="number" oninput="validateNumber(this)" min="1000000000" max="9999999999" id="panno"
+              oninvalid="setCustomValidity('Please enter valid PAN number.')"
+              onchange="try{setCustomValidity('')}catch(e){}">
+            <div id="pannoEmpty" class="m-0 p-0 form-text error">Please enter PAN number</div>
+          </label>
+          <hr>
+        </div>
+      </div>
+      <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="telephone">Blood Group:
+            <select id="blood">
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+            </select>
+            <div id="bloodEmpty" class="m-0 p-0 form-text error">Please select blood group</div>
+          </label>
+          <hr class="m">
+        </div>
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0">Hobbies:
+            <input type="checkbox" name="hobbies" onclick="updateCheckbox()" id="sing" value="Singing">
+            <label class="p-0 m-0 mx-2" for="sing">
+              Singing
+            </label>
+            <input type="checkbox" name="hobbies" onclick="updateCheckbox()" id="cricket" value="Cricket">
+            <label class="p-0 m-0 mx-2" for="cricket">
+              Cricket
+            </label>
+            <input type="checkbox" name="hobbies" onclick="updateCheckbox()" id="read" value="Reading">
+            <label class="p-0 m-0 mx-2" for="read">
+              Reading
+            </label>
+            <input type="checkbox" name="hobbies" onclick="updateCheckbox()" id="write" value="Writing">
+            <label class="p-0 m-0 mx-2" for="write">
+              Writing
+            </label>
+            <input type="checkbox" name="hobbies" onclick="updateCheckbox()" id="dance" value="Dancing">
+            <label class="p-0 m-0 mx-2" for="dance">
+              Dancing
+            </label>
+          </label>
+          <div id="hobbiesEmpty" class="m-0 p-0 form-text error">Please select hobbies</div>
+          <div id="hobbiesLess" class="m-0 p-0 form-text error">Please choose minimum 2 hobbies</div>
+          <hr>
+        </div>
+      </div>
+      <div class="row px-5 row-style">
+        <h3 class="p-0 m-0 text-danger">IN CASE OF EMERGENCY PLEASE NOTIFY</h3>
+        <hr>
+        <label class="p-0 m-0" for="name">Name:
+          <input type="text" oninput="validateText(this)" id="name2" class="col-11">
+          <div id="name2Empty" class="m-0 p-0 form-text error">Please enter a name</div>
+          <div id="name2Error" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+        </label>
+        <hr>
+      </div>
+      <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">Mobile:
+            <input type="number" oninput="validateNumber(this)" min="1000000000" max="9999999999" id="mob2"
+              oninvalid="setCustomValidity('Please enter valid mobile number.')"
+              onchange="try{setCustomValidity('')}catch(e){}" class="mobile2">
+            <div id="mob2Empty" class="m-0 p-0 form-text error">Please enter mobile number</div>
+          </label>
+          <hr style="margin-right: 20px">
+        </div>
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="gender">Gender:
+            <label class="p-0 m-0 mx-2">
+              <input type="radio" name="gender" onclick="updateRadio()" class="gender" value="Male">
+              Male
+            </label>
+            <label class="p-0 m-0 mx-2">
+              <input type="radio" name="gender" onclick="updateRadio()" class="gender" value="Female">
+              Female
+            </label>
+            <div id="genEmpty" class="m-0 p-0 form-text error">Please select a gender</div>
+          </label>
+          <hr style="margin-right: 20px">
+        </div>
+      </div>
+      <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">Telephone:
+            <input type="number" oninput="validateNumber(this)" min="1000000000" max="9999999999" id="tel2"
+              oninvalid="setCustomValidity('Please enter valid telephone.')"
+              onchange="try{setCustomValidity('')}catch(e){}">
+            <div id="tel2Empty" class="m-0 p-0 form-text error">Please enter telephone number</div>
+            <div id="tel2Error" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+          </label>
+          <hr class="m">
+        </div>
+        <div class="col-6 p-0 m-0">
+          <label class="p-0 m-0" for="mobile">Relation:
+            <input type="text" oninput="validateText(this)" id="rel">
+            <div id="relEmpty" class="m-0 p-0 form-text error">Please provide relation</div>
+            <div id="relError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+          </label>
+          <hr>
+        </div>
+      </div>
+      <div class="row px-5 row-style">
+        <h3 class="p-0 m-0 fw-bold">IN CASE OF LOSS PLEASE RETURN TO THE OWNER.</h3>
+      </div>
+      <div class="row px-5 d-flex justify-content-center row-footer">
+        <div class="col-3 p-0 m-0 text-center">
+          <button class="btn btn-secondary px-5 mt-2 mb-2" onclick="saveData()" type="submit">SAVE DATA</button>
+        </div>
+      </div>
+    </div>
