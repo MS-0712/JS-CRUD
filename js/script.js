@@ -1,3 +1,4 @@
+//  To save employee data in the Local Storage
 async function saveData() {
     const obj = await validateData()
     console.log(obj);
@@ -9,6 +10,7 @@ async function saveData() {
         return false
 }
 
+//  TO update employee data in the Local Storage
 async function updateData() {
     const obj = await validateData()
     if (obj) {
@@ -20,6 +22,7 @@ async function updateData() {
         return false
 }
 
+//  To validate all the input fields and show error if needed
 async function validateData() {
     let name = document.getElementById("name").value
     let office = document.getElementById("office").value
@@ -48,11 +51,13 @@ async function validateData() {
     let imageHash
     let flag = true
 
+    // To get the checked value of gender
     let elements = document.getElementsByClassName("gender")
     elements[0].checked ? gender = "Male" : (elements[1].checked ? gender = "Female" : gender = null)
 
     let checkedBoxes = getCheckedBoxes();
 
+    // Checking and enabling error message for missing field values
     if (name == "") {
         document.getElementById("nameEmpty").style.display = 'block'
         flag = false
@@ -154,8 +159,10 @@ async function validateData() {
         flag = false
     } else {
         document.getElementById("fileEmpty").style.display = 'none'
+        // This will generate Base64 string for given image 
         imageHash = await fileUpload(image)
     }
+    
     if (flag) {
         const dataObj = {
             hobbies: JSON.stringify(checkedBoxes),
@@ -190,14 +197,19 @@ async function validateData() {
     }
 }
 
+//  To get the requested HTML page using fetch API
 const getData = function (link, data = null) {
-    const html = fetch(link + '.html').then()
+    const html = fetch('./htmlPages/' + link + '.html').then()
 
     html.then(htmlData => {
+        // Convert the data to plain text string
         return htmlData.text()
     }
     ).then(final => {
+        // Change the data in index file
         document.getElementById('response').innerHTML = final
+
+        // Handle different cases of requested page
         switch (link) {
             case 'home':
                 const allForms = { ...localStorage }
@@ -282,7 +294,6 @@ const getData = function (link, data = null) {
                 document.getElementsByClassName('add')[0].classList.add('active')
                 document.getElementsByClassName('home')[0].classList.remove('active')
                 break;
-
         }
     })
 }
@@ -349,9 +360,7 @@ function validateEmail(input) {
             document.getElementById(input.id + "Error").style.display = 'none'
         }, 2000);
         input.value = value.replace(/[^a-zA-Z0-9@\._ ]/g, "")
-    } else {
-        return true
-    }
+    } else return true;
 }
 
 function validateText(input) {
