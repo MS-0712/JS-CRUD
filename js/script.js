@@ -1,7 +1,6 @@
 //  To save employee data in the Local Storage
 async function saveData() {
     const obj = await validateData()
-    console.log(obj);
     if (obj) {
         const id = 'EMP' + Math.random().toString(16).slice(2)
         localStorage.setItem(id, JSON.stringify(obj))
@@ -14,7 +13,6 @@ async function saveData() {
 async function updateData() {
     const obj = await validateData()
     if (obj) {
-        console.log(obj);
         const UID = document.getElementById('uid').innerText
         localStorage.setItem(UID, JSON.stringify(obj))
         getData('home')
@@ -24,174 +22,66 @@ async function updateData() {
 
 //  To validate all the input fields and show error if needed
 async function validateData() {
-    let name = document.getElementById("name").value
-    let office = document.getElementById("office").value
-    let res = document.getElementById("res").value
-    let mob1 = document.getElementById("mob1").value
-    let tel1 = document.getElementById("tel1").value
-    let email = document.getElementById("email").value
-    let aadhar = document.getElementById("aadhar").value
-    let gstin = document.getElementById("gstin").value
-    let veh = document.getElementById("veh").value
-    let bank = document.getElementById("bank").value
-    let acno = document.getElementById("acno").value
-    let dl = document.getElementById("dl").value
-    let dcno = document.getElementById("dcno").value
-    let ccno = document.getElementById("ccno").value
-    let passno = document.getElementById("passno").value
-    let panno = document.getElementById("panno").value
-    let blood = document.getElementById("blood").value
-    let name2 = document.getElementById("name2").value
-    let mob2 = document.getElementById("mob2").value
-    let tel2 = document.getElementById("tel2").value
-    let rel = document.getElementById("rel").value
-    let dob = document.getElementById("dob").value
-    let image = document.getElementById("file")
-    let gender = 'null'
-    let imageHash
+    const allInputs = {
+        name: document.getElementById("name").value,
+        office: document.getElementById("office").value,
+        res: document.getElementById("res").value,
+        mob1: document.getElementById("mob1").value,
+        tel1: document.getElementById("tel1").value,
+        email: document.getElementById("email").value,
+        aadhar: document.getElementById("aadhar").value,
+        gstin: document.getElementById("gstin").value,
+        veh: document.getElementById("veh").value,
+        bank: document.getElementById("bank").value,
+        acno: document.getElementById("acno").value,
+        dl: document.getElementById("dl").value,
+        dcno: document.getElementById("dcno").value,
+        ccno: document.getElementById("ccno").value,
+        passno: document.getElementById("passno").value,
+        panno: document.getElementById("panno").value,
+        blood: document.getElementById("blood").value,
+        secondName: document.getElementById("secondName").value,
+        mob2: document.getElementById("mob2").value,
+        tel2: document.getElementById("tel2").value,
+        rel: document.getElementById("rel").value,
+        dob: document.getElementById("dob").value,
+        gender: '',
+        file: '',
+        hobbies: ''
+    }
     let flag = true
 
     // To get the checked value of gender
     let elements = document.getElementsByClassName("gender")
-    elements[0].checked ? gender = "Male" : (elements[1].checked ? gender = "Female" : gender = null)
+    elements[0].checked ? allInputs.gender = "Male" : (elements[1].checked ? allInputs.gender = "Female" : allInputs.gender = null)
 
+    // To get all the checked hobbies
     let checkedBoxes = getCheckedBoxes();
-
-    // Checking and enabling error message for missing field values
-    if (name == "") {
-        document.getElementById("nameEmpty").style.display = 'block'
-        flag = false
-    }
-    if (office == "") {
-        document.getElementById("officeEmpty").style.display = 'block'
-        flag = false
-    }
-    if (res == "") {
-        document.getElementById("resEmpty").style.display = 'block'
-        flag = false
-    }
-    if (mob1 == "") {
-        document.getElementById("mob1Empty").style.display = 'block'
-        flag = false
-    }
-    if (tel1 == "") {
-        document.getElementById("tel1Empty").style.display = 'block'
-        flag = false
-    }
-    if (email == "") {
-        document.getElementById("emailEmpty").style.display = 'block'
-        flag = false
-    }
-    if (aadhar == "") {
-        document.getElementById("aadharEmpty").style.display = 'block'
-        flag = false
-    }
-    if (gstin == "") {
-        document.getElementById("gstinEmpty").style.display = 'block'
-        flag = false
-    }
-    if (dob == "") {
-        document.getElementById("dobEmpty").style.display = 'block'
-        flag = false
-    }
-    if (veh == "") {
-        document.getElementById("vehEmpty").style.display = 'block'
-        flag = false
-    }
-    if (dl == "") {
-        document.getElementById("dlEmpty").style.display = 'block'
-        flag = false
-    }
-    if (bank == "") {
-        document.getElementById("bankEmpty").style.display = 'block'
-        flag = false
-    }
-    if (acno == "") {
-        document.getElementById("acnoEmpty").style.display = 'block'
-        flag = false
-    }
-    if (dcno == "") {
-        document.getElementById("dcnoEmpty").style.display = 'block'
-        flag = false
-    }
-    if (ccno == "") {
-        document.getElementById("ccnoEmpty").style.display = 'block'
-        flag = false
-    }
-    if (passno == "") {
-        document.getElementById("passnoEmpty").style.display = 'block'
-        flag = false
-    }
-    if (panno == "") {
-        document.getElementById("pannoEmpty").style.display = 'block'
-        flag = false
-    }
-    if (name2 == "") {
-        document.getElementById("name2Empty").style.display = 'block'
-        flag = false
-    }
-    if (mob2 == "") {
-        document.getElementById("mob2Empty").style.display = 'block'
-        flag = false
-    }
-    if (tel2 == "") {
-        document.getElementById("tel2Empty").style.display = 'block'
-        flag = false
-    }
-    if (rel == "") {
-        document.getElementById("relEmpty").style.display = 'block'
-        flag = false
-    }
     if (!checkedBoxes) {
         document.getElementById("hobbiesEmpty").style.display = 'block'
         flag = false
-    }
-    if (checkedBoxes != null && checkedBoxes.length <= 1) {
-        document.getElementById("hobbiesLess").style.display = 'block'
-        flag = false
-    }
-    if (!gender) {
-        document.getElementById("genEmpty").style.display = 'block'
-        flag = false
-    }
+    } else allInputs.hobbies = JSON.stringify(checkedBoxes)
+
+    // To check if file is uploaded
+    let image = document.getElementById("file")
     if (image.files.length < 1) {
         document.getElementById("fileEmpty").style.display = 'block'
         flag = false
     } else {
         document.getElementById("fileEmpty").style.display = 'none'
         // This will generate Base64 string for given image 
-        imageHash = await fileUpload(image)
+        allInputs.file = await fileUpload(image)
     }
-    
-    if (flag) {
-        const dataObj = {
-            hobbies: JSON.stringify(checkedBoxes),
-            name: name,
-            imageHash: imageHash,
-            office: office,
-            res: res,
-            mob1: mob1,
-            tel1: tel1,
-            email: email,
-            aadhar: aadhar,
-            gstin: gstin,
-            dob: dob,
-            veh: veh,
-            bank: bank,
-            acno: acno,
-            dl: dl,
-            dcno: dcno,
-            ccno: ccno,
-            panno: panno,
-            passno: passno,
-            blood: blood,
-            name2: name2,
-            mob2: mob2,
-            tel2: tel2,
-            rel: rel,
-            gender: gender,
+
+    // Checking and enabling error message for missing field values
+    for (const inputI in allInputs) {
+        if (allInputs[inputI] == "") {
+            document.getElementById(inputI + "Empty").style.display = 'block'
+            flag = false
         }
-        return dataObj
+    }
+    if (flag) {
+        return dataObj = allInputs
     } else {
         return dataObj = null
     }
@@ -226,12 +116,12 @@ const getData = function (link, data = null) {
                             <td>${data.name}</td>
                             <td>${data.email}</td>
                             <td>${data.mob1}</td>
-                            <td><img src='${data.imageHash}'></td>
-                            td>
+                            <td><img src='${data.file}'></td>
+                            <td>
                                 <div class="d-flex align-items-middle flex-column">
                                     <button data-id='${id}' class="mx-2 mb-3 btn btn-primary" onclick='viewEmp(this)'><i class="bi bi-eye"></i></button>
                                     <button data-id='${id}' class="mx-2 mb-3 btn btn-success" onclick='editEmp(this)'><i class="bi bi-pencil-square"></i></button>
-                                    <button data-id='${id}' class="mx-2 btn btn-danger" onclick='delEmp(this)'><i class="bi bi-trash"></i></button><
+                                    <button data-id='${id}' class="mx-2 btn btn-danger" onclick='delEmp(this)'><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
                         </tr>`
@@ -252,7 +142,7 @@ const getData = function (link, data = null) {
             case 'editData':
             case 'viewData':
                 let empData = JSON.parse(localStorage.getItem(data.dataset.id))
-                console.log(empData);
+                // Fill the html form with the inputs
                 document.getElementById('uid').innerText = data.dataset.id
                 document.getElementById("name").value = empData.name
                 document.getElementById("office").value = empData.office
@@ -272,11 +162,11 @@ const getData = function (link, data = null) {
                 document.getElementById("passno").value = empData.passno
                 document.getElementById("panno").value = empData.panno
                 document.getElementById("blood").value = empData.blood
-                document.getElementById("name2").value = empData.name2
+                document.getElementById("secondName").value = empData.secondName
                 document.getElementById("mob2").value = empData.mob2
                 document.getElementById("tel2").value = empData.tel2
                 document.getElementById("rel").value = empData.rel
-                document.getElementById("image").setAttribute("src", empData.imageHash)
+                document.getElementById("image").setAttribute("src", empData.file)
 
                 let hobbies = JSON.parse(empData.hobbies)
                 hobbies.forEach(element => {
@@ -332,18 +222,15 @@ function updateCheckbox() {
     count == null ? count = 0 : count = count.length
     if (count == 0) {
         document.getElementById("hobbiesEmpty").style.display = 'block'
-        document.getElementById("hobbiesLess").style.display = 'none'
     } else if (count < 2) {
-        document.getElementById("hobbiesLess").style.display = 'block'
+        document.getElementById("hobbiesEmpty").style.display = 'block'
+        document.getElementById("hobbiesEmpty").innerText = 'Please select at least 2 hobbies'
+    } else
         document.getElementById("hobbiesEmpty").style.display = 'none'
-    } else {
-        document.getElementById("hobbiesEmpty").style.display = 'none'
-        document.getElementById("hobbiesLess").style.display = 'none'
-    }
 }
 
 function updateRadio() {
-    document.getElementById("genEmpty").style.display = 'none'
+    document.getElementById("genderEmpty").style.display = 'none'
 }
 
 function validateEmail(input) {
@@ -355,9 +242,11 @@ function validateEmail(input) {
         document.getElementById("emailEmpty").style.display = 'block'
 
     if (regex.test(value)) {
-        document.getElementById(input.id + "Error").style.display = 'block'
+        document.getElementById(input.id + "Empty").style.display = 'block'
+        document.getElementById(input.id + "Empty").innerText = 'Special characters are not allowed!'
         setTimeout(() => {
-            document.getElementById(input.id + "Error").style.display = 'none'
+            document.getElementById(input.id + "Empty").innerText = `Please enter a ${input.id}`
+            document.getElementById(input.id + "Empty").style.display = 'none'
         }, 2000);
         input.value = value.replace(/[^a-zA-Z0-9@\._ ]/g, "")
     } else return true;
@@ -372,9 +261,11 @@ function validateText(input) {
         document.getElementById(input.id + "Empty").style.display = 'block'
 
     if (regex.test(value)) {
-        document.getElementById(input.id + "Error").style.display = 'block'
+        document.getElementById(input.id + "Empty").style.display = 'block'
+        document.getElementById(input.id + "Empty").innerText = 'Special characters are not allowed!'
         setTimeout(() => {
-            document.getElementById(input.id + "Error").style.display = 'none'
+            document.getElementById(input.id + "Empty").innerText = `Please enter a ${input.id}`
+            document.getElementById(input.id + "Empty").style.display = 'none'
         }, 2000);
         input.value = value.replace(/[^a-zA-Z0-9 ]/g, "")
     } else return true;
@@ -417,9 +308,11 @@ function validateAddress(input) {
         document.getElementById(input.id + "Empty").style.display = 'block'
 
     if (regex.test(value)) {
-        document.getElementById(input.id + "Error").style.display = 'block'
+        document.getElementById(input.id + "Empty").style.display = 'block'
+        document.getElementById(input.id + "Empty").innerText = 'Special characters are not allowed!'
         setTimeout(() => {
-            document.getElementById(input.id + "Error").style.display = 'none'
+            document.getElementById(input.id + "Empty").innerText = `Please enter address`
+            document.getElementById(input.id + "Empty").style.display = 'none'
         }, 2000);
         input.value = value.replace(/[^a-zA-Z0-9/\-,\n\. ]/g, "")
     } else return true;

@@ -13,14 +13,12 @@
             <input type="text" oninput="validateText(this)" id="name" class="col-11">
         </label>
         <div id="nameEmpty" class="m-0 p-0 form-text error">Please enter a name</div>
-        <div id="nameError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
         <hr>
     </div>
     <div class="row px-5 row-style">
         <label class="p-0 m-0" for="office">Office:
             <textarea oninput="validateAddress(this)" id="office" rows="3" class="col-7"></textarea>
             <div id="officeEmpty" class="m-0 p-0 form-text error">Please enter an address</div>
-            <div id="officeError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
         </label>
         <hr>
     </div>
@@ -31,7 +29,6 @@
         <label class="p-0 m-0" for="res">Residence:
             <textarea oninput="validateAddress(this)" id="res" rows="3" class="col-7"></textarea>
             <div id="resEmpty" class="m-0 p-0 form-text error">Please enter an address</div>
-            <div id="resError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
         </label>
         <hr>
     </div>
@@ -55,7 +52,7 @@
                     onchange="try{setCustomValidity('')}catch(e){}">
                 <div id="tel1Empty" class="m-0 p-0 form-text error">Please enter telephone number</div>
             </label>
-            <hr class="m">
+            <hr class="customMargin">
         </div>
         <div class="col-6 p-0 m-0">
             <label class="p-0 m-0" for="telephone">File:
@@ -71,9 +68,8 @@
             <label class="p-0 m-0" for="email">Email ID:
                 <input type="email" id="email" oninput="validateEmail(this)">
                 <div id="emailEmpty" class="m-0 p-0 form-text error">Please enter an email address</div>
-                <div id="emailError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
             </label>
-            <hr class="m">
+            <hr class="customMargin">
         </div>
         <div class="col-6 p-0 m-0">
             <label class="p-0 m-0 mb-1">Birthdate:
@@ -91,13 +87,12 @@
                     onchange="try{setCustomValidity('')}catch(e){}">
                 <div id="aadharEmpty" class="m-0 p-0 form-text error">Please enter aadhar number</div>
             </label>
-            <hr class="m">
+            <hr class="customMargin">
         </div>
         <div class="col-6 p-0 m-0">
             <label class="p-0 m-0" for="mobile">GSTIN:
                 <input type="text" oninput="validateText(this)" id="gstin">
                 <div id="gstinEmpty" class="m-0 p-0 form-text error">Please enter GSTIN</div>
-                <div id="gstinError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
             </label>
             <hr>
         </div>
@@ -107,15 +102,13 @@
             <label class="p-0 m-0" for="mobile">Vehicle No:
                 <input type="text" oninput="validateText(this)" id="veh">
                 <div id="vehEmpty" class="m-0 p-0 form-text error">Please enter vehicle number</div>
-                <div id="vehError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
             </label>
-            <hr class="m">
+            <hr class="customMargin">
         </div>
         <div class="col-6 p-0 m-0">
             <label class="p-0 m-0" for="mobile">DL No:
                 <input type="text" oninput="validateText(this)" id="dl">
                 <div id="dlEmpty" class="m-0 p-0 form-text error">Please enter DL number</div>
-                <div id="dlError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
             </label>
             <hr>
         </div>
@@ -125,9 +118,8 @@
             <label class="p-0 m-0" for="mobile">Bank A/c With:
                 <input type="text" oninput="validateText(this)" id="bank">
                 <div id="bankEmpty" class="m-0 p-0 form-text error">Please enter bank name</div>
-                <div id="bankError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
             </label>
-            <hr class="m">
+            <hr class="customMargin">
         </div>
         <div class="col-6 p-0 m-0">
             <label class="p-0 m-0" for="mobile">Account No:
@@ -147,7 +139,7 @@
                     onchange="try{setCustomValidity('')}catch(e){}">
                 <div id="dcnoEmpty" class="m-0 p-0 form-text error">Please enter debit card number</div>
             </label>
-            <hr class="m">
+            <hr class="customMargin">
         </div>
         <div class="col-6 p-0 m-0">
             <label class="p-0 m-0" for="mobile">Credit Card No:
@@ -167,7 +159,7 @@
                     onchange="try{setCustomValidity('')}catch(e){}">
                 <div id="passnoEmpty" class="m-0 p-0 form-text error">Please enter passport number</div>
             </label>
-            <hr class="m">
+            <hr class="customMargin">
         </div>
         <div class="col-6 p-0 m-0">
             <label class="p-0 m-0" for="mobile">PAN No:
@@ -194,7 +186,7 @@
                 </select>
                 <div id="bloodEmpty" class="m-0 p-0 form-text error">Please select blood group</div>
             </label>
-            <hr class="m">
+            <hr class="customMargin">
         </div>
         <div class="col-6 p-0 m-0">
             <label class="p-0 m-0">Hobbies:
@@ -220,7 +212,6 @@
                 </label>
             </label>
             <div id="hobbiesEmpty" class="m-0 p-0 form-text error">Please select hobbies</div>
-            <div id="hobbiesLess" class="m-0 p-0 form-text error">Please choose minimum 2 hobbies</div>
             <hr>
         </div>
     </div>
@@ -228,9 +219,8 @@
         <h3 class="p-0 m-0 text-danger">IN CASE OF EMERGENCY PLEASE NOTIFY</h3>
         <hr>
         <label class="p-0 m-0" for="name">Name:
-            <input type="text" oninput="validateText(this)" id="name2" class="col-11">
-            <div id="name2Empty" class="m-0 p-0 form-text error">Please enter a name</div>
-            <div id="name2Error" class="m-0 p-0 form-text error">Special characters are not allowed</div>
+            <input type="text" oninput="validateText(this)" id="secondName" class="col-11">
+            <div id="secondNameEmpty" class="m-0 p-0 form-text error">Please enter a name</div>
         </label>
         <hr>
     </div>
@@ -266,15 +256,13 @@
                     oninvalid="setCustomValidity('Please enter valid telephone.')"
                     onchange="try{setCustomValidity('')}catch(e){}">
                 <div id="tel2Empty" class="m-0 p-0 form-text error">Please enter telephone number</div>
-                <div id="tel2Error" class="m-0 p-0 form-text error">Special characters are not allowed</div>
             </label>
-            <hr class="m">
+            <hr class="customMargin">
         </div>
         <div class="col-6 p-0 m-0">
             <label class="p-0 m-0" for="mobile">Relation:
                 <input type="text" oninput="validateText(this)" id="rel">
                 <div id="relEmpty" class="m-0 p-0 form-text error">Please provide relation</div>
-                <div id="relError" class="m-0 p-0 form-text error">Special characters are not allowed</div>
             </label>
             <hr>
         </div>
@@ -288,4 +276,3 @@
         </div>
     </div>
 </div>
-<!-- </form> -->
