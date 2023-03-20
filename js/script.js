@@ -317,3 +317,7 @@ function validateAddress(input) {
         input.value = value.replace(/[^a-zA-Z0-9/\-,\n\. ]/g, "")
     } else return true;
 }
+
+function checkValidity(){
+    try{setCustomValidity('')}catch(e){}
+}
