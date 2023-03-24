@@ -88,28 +88,23 @@ async function validateData() {
 }
 
 //  To get the requested HTML page using fetch API
-const getData = function (link, data = null) {
-    const html = fetch('./htmlPages/' + link + '.html').then();
+const getData = async function (link, data = null) {
+    const html = await fetch('./htmlPages/' + link + '.html').then(response => response.text());
+    
+    // Change the data in index file
+    document.getElementById('response').innerHTML = html;
 
-    html.then(htmlData => {
-        // Convert the data to plain text string
-        return htmlData.text();
-    }
-    ).then(final => {
-        // Change the data in index file
-        document.getElementById('response').innerHTML = final;
-
-        // Handle different cases of requested page
-        switch (link) {
-            case 'home':
-                const allForms = { ...localStorage };
-                if (Object.keys(allForms).length) {
-                    let sr = 1;
-                    for (const id in allForms) {
-                        if (!(id.startsWith('EMP')))
-                            continue;
-                        const data = JSON.parse(allForms[id]);
-                        const tr = `
+    // Handle different cases of requested page
+    switch (link) {
+        case 'home':
+            const allForms = { ...localStorage };
+            if (Object.keys(allForms).length) {
+                let sr = 1;
+                for (const id in allForms) {
+                    if (!(id.startsWith('EMP')))
+                        continue;
+                    const data = JSON.parse(allForms[id]);
+                    const tr = `
                         <tr class='bg-light'>
                             <td>${sr}</td>
                             <td>${id}</td>
@@ -125,67 +120,66 @@ const getData = function (link, data = null) {
                                 </div>
                             </td>
                         </tr>`;
-                        sr++;
-                        document.getElementById('empData').innerHTML += tr;
-                    }
-                } else {
-                    const tr = `
+                    sr++;
+                    document.getElementById('empData').innerHTML += tr;
+                }
+            } else {
+                const tr = `
                     <tr>
                     <td colspan='7' class='text-danger h5'> --- No Data Available ---</td>
                     </tr>`;
-                    document.getElementById('empData').innerHTML += tr;
-                }
-                document.getElementsByClassName('home')[0].classList.add('active');
-                document.getElementsByClassName('add')[0].classList.remove('active');
-                break;
+                document.getElementById('empData').innerHTML += tr;
+            }
+            document.getElementsByClassName('home')[0].classList.add('active');
+            document.getElementsByClassName('add')[0].classList.remove('active');
+            break;
 
-            case 'editData':
-            case 'viewData':
-                let empData = JSON.parse(localStorage.getItem(data.dataset.id));
-                // Fill the html form with the inputs
-                document.getElementById('uid').innerText = data.dataset.id;
-                document.getElementById("name").value = empData.name;
-                document.getElementById("office").value = empData.office;
-                document.getElementById("res").value = empData.res;
-                document.getElementById("mob1").value = empData.mob1;
-                document.getElementById("tel1").value = empData.tel1;
-                document.getElementById("email").value = empData.email;
-                document.getElementById("aadhar").value = empData.aadhar;
-                document.getElementById("gstin").value = empData.gstin;
-                document.getElementById("dob").value = empData.dob;
-                document.getElementById("veh").value = empData.veh;
-                document.getElementById("bank").value = empData.bank;
-                document.getElementById("acno").value = empData.acno;
-                document.getElementById("dl").value = empData.dl;
-                document.getElementById("dcno").value = empData.dcno;
-                document.getElementById("ccno").value = empData.ccno;
-                document.getElementById("passno").value = empData.passno;
-                document.getElementById("panno").value = empData.panno;
-                document.getElementById("blood").value = empData.blood;
-                document.getElementById("secondName").value = empData.secondName;
-                document.getElementById("mob2").value = empData.mob2;
-                document.getElementById("tel2").value = empData.tel2;
-                document.getElementById("rel").value = empData.rel;
-                document.getElementById("image").setAttribute("src", empData.file);
+        case 'editData':
+        case 'viewData':
+            let empData = JSON.parse(localStorage.getItem(data.dataset.id));
+            // Fill the html form with the inputs
+            document.getElementById('uid').innerText = data.dataset.id;
+            document.getElementById("name").value = empData.name;
+            document.getElementById("office").value = empData.office;
+            document.getElementById("res").value = empData.res;
+            document.getElementById("mob1").value = empData.mob1;
+            document.getElementById("tel1").value = empData.tel1;
+            document.getElementById("email").value = empData.email;
+            document.getElementById("aadhar").value = empData.aadhar;
+            document.getElementById("gstin").value = empData.gstin;
+            document.getElementById("dob").value = empData.dob;
+            document.getElementById("veh").value = empData.veh;
+            document.getElementById("bank").value = empData.bank;
+            document.getElementById("acno").value = empData.acno;
+            document.getElementById("dl").value = empData.dl;
+            document.getElementById("dcno").value = empData.dcno;
+            document.getElementById("ccno").value = empData.ccno;
+            document.getElementById("passno").value = empData.passno;
+            document.getElementById("panno").value = empData.panno;
+            document.getElementById("blood").value = empData.blood;
+            document.getElementById("secondName").value = empData.secondName;
+            document.getElementById("mob2").value = empData.mob2;
+            document.getElementById("tel2").value = empData.tel2;
+            document.getElementById("rel").value = empData.rel;
+            document.getElementById("image").setAttribute("src", empData.file);
 
-                let hobbies = JSON.parse(empData.hobbies);
-                hobbies.forEach(element => {
-                    document.getElementById(element).checked = true;
-                });
+            let hobbies = JSON.parse(empData.hobbies);
+            hobbies.forEach(element => {
+                document.getElementById(element).checked = true;
+            });
 
-                gender = empData.gender;
-                if (gender == "Male")
-                    document.getElementById("male").checked = true;
-                else if (gender == "Female")
-                    document.getElementById("female").checked = true;
-                break;
+            gender = empData.gender;
+            if (gender == "Male")
+                document.getElementById("male").checked = true;
+            else if (gender == "Female")
+                document.getElementById("female").checked = true;
+            break;
 
-            case 'addData':
-                document.getElementsByClassName('add')[0].classList.add('active');
-                document.getElementsByClassName('home')[0].classList.remove('active');
-                break;
-        }
-    })
+        case 'addData':
+            document.getElementsByClassName('add')[0].classList.add('active');
+            document.getElementsByClassName('home')[0].classList.remove('active');
+            break;
+    }
 }
 
 window.onload = getData('home');
@@ -322,5 +316,5 @@ function checkValidity() {
     try {
         setCustomValidity('');
     }
-    catch (e) {  }
+    catch (e) { }
 }
