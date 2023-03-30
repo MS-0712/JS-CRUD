@@ -1,0 +1,229 @@
+<div class="container-sm container-md container-lg mt-2">
+    <h6 class="mt-2">USER ID: <span id="uid"></span></h6>
+    <div class="row px-5 d-flex justify-content-end row-header">
+        <div class="col-auto align-middle bg-secondary text-center">
+            <h1 class="text-light p-0 m-0">PERSONAL</h1>
+        </div>
+        <div class="col-auto bg-danger">
+
+        </div>
+        <hr class="mt-4">
+    </div>
+    <div class="row px-5 row-style">
+        <label class="p-0 m-0" for="name">Name:
+            <input disabled required type="text" oninput="validateText(this)" id="name" class="col-11">
+        </label>
+        <hr>
+    </div>
+    <div class="row px-5 row-style">
+        <label class="p-0 m-0" for="office">Office:
+            <textarea disabled oninput="validateAddress(this)" id="office" rows="3"></textarea>
+        </label>
+        <hr>
+    </div>
+    <div class="row px-5 row-style">
+        <hr class="mt-4">
+    </div>
+    <div class="row px-5 row-style">
+        <label class="p-0 m-0" for="res">Residence:
+            <textarea disabled oninput="validateAddress(this)" id="res" rows="3"></textarea>
+        </label>
+        <hr>
+    </div>
+    <div class="row px-5 row-style">
+        <hr class="mt-4">
+    </div>
+    <div class="row px-5 row-style">
+        <label class="p-0 m-0" for="mobile">Mobile:
+            <input disabled type="number" pattern="[0-9]" id="mob1" class="col-11">
+        </label>
+        <hr>
+    </div>
+    <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="telephone">Telephone:
+                <input type="number" disabled id="tel1">
+                <div id="tel1Empty" class="m-0 p-0 form-text error">Please enter telephone number</div>
+            </label>
+            <hr class="customMargin">
+        </div>
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="telephone">File:
+                <img src="" id="image" width="200" height="200" alt="Uploaded image">
+            </label>
+            <hr>
+        </div>
+    </div>
+    <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="email">Email ID:
+                <input disabled type="email" id="email">
+            </label>
+            <hr class="customMargin">
+        </div>
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0 mb-1">Birthdate:
+                <input type="date" disabled id="dob" max="2015-01-01">
+            </label>
+            <hr>
+        </div>
+    </div>
+    <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">Aadhar No:
+                <input disabled type="number" pattern="[0-9]" id="aadhar">
+            </label>
+            <hr style="margin-right: 20px;">
+        </div>
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">GSTIN:
+                <input disabled type="number" pattern="[0-9]" id="gstin">
+            </label>
+            <hr>
+        </div>
+    </div>
+    <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">Vehicle No:
+                <input disabled type="number" pattern="[0-9]" id="veh">
+            </label>
+            <hr style="margin-right: 20px;">
+        </div>
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">DL No:
+                <input disabled type="number" pattern="[0-9]" id="dl">
+            </label>
+            <hr>
+        </div>
+    </div>
+    <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">Bank A/c With:
+                <input disabled type="text" id="bank">
+            </label>
+            <hr style="margin-right: 20px;">
+        </div>
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">Account No:
+                <input disabled type="number" pattern="[0-9]" id="acno">
+            </label>
+            <hr>
+        </div>
+    </div>
+    <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">Debit Card No:
+                <input disabled type="number" pattern="[0-9]" id="dcno">
+            </label>
+            <hr style="margin-right: 20px;">
+        </div>
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">Credit Card No:
+                <input disabled type="number" pattern="[0-9]" id="ccno">
+            </label>
+            <hr>
+        </div>
+    </div>
+    <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">Passport No:
+                <input disabled type="number" pattern="[0-9]" id="passno">
+            </label>
+            <hr style="margin-right: 20px;">
+        </div>
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">PAN No:
+                <input disabled type="number" pattern="[0-9]" id="panno">
+            </label>
+            <hr>
+        </div>
+    </div>
+    <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="telephone">Blood Group:
+                <select disabled id="blood">
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </label>
+            <hr style="margin-right: 20px">
+        </div>
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0">Hobbies:
+                <input type="checkbox" name="hobbies" disabled id="Singing">
+                <label class="p-0 m-0 mx-2">
+                    Singing
+                </label>
+                <input type="checkbox" name="hobbies" disabled id="Cricket">
+                <label class="p-0 m-0 mx-2">
+                    Cricket
+                </label>
+                <input type="checkbox" name="hobbies" disabled id="Reading">
+                <label class="p-0 m-0 mx-2">
+                    Reading
+                </label>
+                <input type="checkbox" name="hobbies" disabled id="Writing">
+                <label class="p-0 m-0 mx-2">
+                    Writing
+                </label>
+                <input type="checkbox" name="hobbies" disabled id="Dancing">
+                <label class="p-0 m-0 mx-2">
+                    Dancing
+                </label>
+            </label>
+            <hr>
+        </div>
+    </div>
+    <div class="row px-5 row-style">
+        <h3 class="p-0 m-0 text-danger">IN CASE OF EMERGENCY PLEASE NOTIFY</h3>
+        <hr>
+        <label class="p-0 m-0" for="name">Name:
+            <input disabled type="text" oninput="validateText(this)" id="secondName" class="col-11">
+        </label>
+        <hr>
+    </div>
+    <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">Mobile:
+                <input disabled type="number" pattern="[0-9]" id="mob2">
+            </label>
+            <hr style="margin-right: 20px">
+        </div>
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="gender">Gender:
+                <label class="p-0 m-0">
+                    <input disabled type="radio" id="male" name="gender" value="Male">
+                    Male
+                </label>
+                <label class="p-0 m-0">
+                    <input disabled type="radio" id="female" name="gender" value="Female">
+                    Female
+                </label>
+            </label>
+            <hr style="margin-right: 20px">
+        </div>
+    </div>
+    <div class="row px-5 row-style">
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">Telephone:
+                <input disabled type="number" pattern="[0-9]" id="tel2">
+            </label>
+            <hr style="margin-right: 20px;">
+        </div>
+        <div class="col-6 p-0 m-0">
+            <label class="p-0 m-0" for="mobile">Relation:
+                <input disabled type="text" oninput="validateText(this)" id="rel">
+            </label>
+            <hr>
+        </div>
+    </div>
+    <div class="row px-5 row-style row-footer">
+        <h3 class="p-0 m-0 fw-bold">IN CASE OF LOSS PLEASE RETURN TO THE OWNER.</h3>
+    </div>
+</div>
